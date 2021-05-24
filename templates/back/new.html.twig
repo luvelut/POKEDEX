@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="bandeau">
+        <div class="titre">
+            <h1>Ajouter une carte</h1>
+        </div>
+    </div>
+
+    <br>
+    <div class="monFormulaire">
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <br>
+        <br>
+        <input class="btn btn-outline-dark" type="submit" value="Ajouter">
+        <a class="btn btn-outline-dark" href="{{ path('back_list')}}">Annuler</a>
+        {{ form_end(form) }}
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="bandeau">
+        <div class="titre">
+
+            <a  href="{{ path('front_list') }}"><h1>Benji's pokedex</h1></a>
+        </div>
+        <div class="btnConnexion">
+            <a class="btn btn-outline-light" href="{{ path('login') }}">Connexion</a>
+        </div>
+    </div>
+
+    {% include '_form.html.twig' with {form: form} only %}
+
+    {% if cards|length > 0 %}
+
+        {% for card in cards %}
+
+            <div class="divCarte">
+                <a href="{{path('front_show',{'id': card.id} ) }}"><img src="{{ vich_uploader_asset(card,'imageFile') }}" height="400px"/></a>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Aucune carte ne correspond à votre recherche</p>
+    {% endif %}
+{% endblock %}

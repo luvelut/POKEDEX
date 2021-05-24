@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="bandeau">
+        <div class="titre">
+            <h1>Supprimer la carte : {{ card.name }}</h1>
+        </div>
+    </div>
+    <div class="imgSuppr">
+        <img src="{{ vich_uploader_asset(card,'imageFile') }}" height="400px"/>
+    </div>
+
+    {{ form_start(form) }}
+    <div class="btnSuppression">
+
+        <input class="btn btn-outline-dark" type="submit" value="Confirmer"/>
+        <a class="btn btn-outline-dark" href="{{ path('back_list')}}">Annuler</a>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}

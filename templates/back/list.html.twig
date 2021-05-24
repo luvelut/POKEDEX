@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="bandeau">
+        <div class="titre">
+
+            <h1>Gérer mes cartes</h1>
+        </div>
+        <div class="btnConnexion">
+            <a class="btn btn-outline-light" href="{{ path('logout') }}">Déconnexion</a>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <a class="btn btn-outline-dark btn-list" href="{{ path('back_new') }}">Ajouter une carte</a>
+
+    {% include '_flash.html.twig' %}
+
+    {% include '_form.html.twig' with {form: form} only %}
+    <div class="monTableau">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Numéros</th>
+                <th>Quantité</th>
+                <th>Set</th>
+                <th>Etat</th>
+                <th colspan="2" >Actions</th>
+            </tr>
+            </thead>
+
+            {% for card in cards %}
+
+            <tbody>
+            <tr>
+                <td>{{ card.id }}</td>
+                <td>{{ card.name }}</td>
+                <td>{{ card.type }}</td>
+                <td>{{ card.numCard }} / {{ card.numSet }}</td>
+                <td>{{ card.quantity }}</td>
+                <td>{{ card.extension }}</td>
+                <td>{{ card.state }}</td>
+                <td><a href="{{ path('back_edit',{'id': card.id} )}}"><i class="material-icons">edit</i></a></td>
+                <td><a href="{{ path('back_delete',{'id': card.id} )}}"><i class="material-icons">delete</i></a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

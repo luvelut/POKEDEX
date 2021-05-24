@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="bandeau">
+        <div class="titre">
+            <a  href="{{ path('front_list') }}"><h1>Benji's pokedex</h1></a>
+        </div>
+        <div class="btnConnexion">
+            <a class="btn btn-outline-light" href="{{ path('login') }}">Connexion</a>
+        </div>
+    </div>
+
+    <div class="showCarte">
+        <div class="img">
+            <img src="{{ vich_uploader_asset(card,'imageFile') }}" height="600px"/>
+        </div>
+        <div class="description">
+            <p><strong>Nom :</strong> {{ card.name }}</p>
+            <p><strong>Type :</strong> {{ card.type }}</p>
+            <p><strong>Numéro :</strong> {{ card.numCard }} / {{ card.numSet }}</p>
+            <p><strong>Etat :</strong> {{ card.state }}</p>
+            <p><strong>Set :</strong> {{ card.extension }}</p>
+
+        </div>
+    </div>
+{% endblock %}

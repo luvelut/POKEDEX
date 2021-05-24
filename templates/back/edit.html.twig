@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="bandeau">
+        <div class="titre">
+            <h1>Modifier la carte : {{ card.name }}</h1>
+        </div>
+    </div>
+
+    <div class="imgEdit">
+        <img src="{{ vich_uploader_asset(card,'imageFile') }}" height="400px"/>
+    </div>
+
+
+    <div class="monFormulaireEdit">
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <br>
+        <br>
+        <input class="btn btn-outline-dark" type="submit" value="Modifier">
+        <a class="btn btn-outline-dark" href="{{ path('back_list')}}">Annuler</a>
+        {{ form_end(form) }}
+    </div>
+
+
+
+
+
+{% endblock %}
